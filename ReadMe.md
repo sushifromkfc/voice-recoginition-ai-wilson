@@ -12,6 +12,7 @@ Goal is to create my personal AI assistant W.I.L.S.O.N like "Jarvis" from the Ir
 
 
 ** Instruction **
+
 # Setup
 MacOS: python3 -m venv venv
 Windows: python -m venv venv
@@ -20,4 +21,9 @@ Windows: python -m venv venv
 MacOS: source venv/bin/activate
 Windows: .venv\Scripts\activate
 
-# 
+# Install Dependencies
+pip install google-genai edge-tts asyncio python-dotenv pygame
+
+# Run the app
+python main.py
+
