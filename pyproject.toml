@@ -1,0 +1,14 @@
+[project]
+name = "wilson"
+version = "0.1.0"
+description = "Voice Recognition AI Assistant"
+requires-python = ">=3.12"
+dependencies = [
+    "google-genai",
+    "edge-tts",
+    "pygame",
+    "python-dotenv",
+]
+
+[tool.setuptools]
+packages = ["wilson"]
