@@ -3,7 +3,7 @@
 Goal is to create my personal AI assistant W.I.L.S.O.N like "Jarvis" from the Ironman series.
 
 # Tech Stack
-- Python 3.11.10
+- Python 3.12.10
 - 
 
 # Features
