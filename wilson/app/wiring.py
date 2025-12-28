@@ -4,6 +4,7 @@ from wilson.core.services.orchestrator import Orchestrator
 from wilson.adapters.llm.gemini_client import GeminiAdapter
 from wilson.adapters.speech.edge_tts_adapter import EdgeTTSAdapter
 from wilson.adapters.speech.pygame_player import PygamePlayerAdapter
+from wilson.adapters.speech.stt_adapter import SpeechRecognitionAdapter
 
 def build_app() -> Orchestrator:
     settings = Settings()
@@ -15,6 +16,7 @@ def build_app() -> Orchestrator:
     )
     tts_adapter = EdgeTTSAdapter()
     player_adapter = PygamePlayerAdapter()
+    stt_adapter = SpeechRecognitionAdapter()
     
     # Config
     assistant_config = AssistantConfig(
@@ -28,5 +30,6 @@ def build_app() -> Orchestrator:
         llm=llm_adapter, 
         tts=tts_adapter, 
         player=player_adapter,
+        stt=stt_adapter,
         config=assistant_config
     )

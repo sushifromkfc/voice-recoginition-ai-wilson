@@ -8,6 +8,8 @@ dependencies = [
     "edge-tts",
     "pygame",
     "python-dotenv",
+    "SpeechRecognition",
+    "PyAudio",
 ]
 
 [tool.setuptools]
