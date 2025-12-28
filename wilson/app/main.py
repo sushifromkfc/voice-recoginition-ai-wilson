@@ -6,9 +6,8 @@ async def main():
     
     app = build_app()
     
-    # Test Interaction
-    user_input = "Hello Wilson. I am currently stranded on an island of code. Who are you?"
-    await app.process_user_input(user_input)
+    print("Listening for voice input... (Say 'exit' to quit)")
+    await app.run_loop()
 
 if __name__ == "__main__":
     asyncio.run(main())

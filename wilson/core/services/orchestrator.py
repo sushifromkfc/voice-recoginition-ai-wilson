@@ -1,5 +1,6 @@
 import os
-from wilson.core.ports.ports import LLMPort, TTSPort, AudioPlayerPort
+import asyncio
+from wilson.core.ports.ports import LLMPort, TTSPort, AudioPlayerPort, STTPort
 from wilson.core.domain.models import Message, AssistantConfig
 
 class Orchestrator:
@@ -8,13 +9,30 @@ class Orchestrator:
         llm: LLMPort, 
         tts: TTSPort, 
         player: AudioPlayerPort,
+        stt: STTPort,
         config: AssistantConfig
     ):
         self.llm = llm
         self.tts = tts
         self.player = player
+        self.stt = stt
         self.config = config
         self.history: list[Message] = []
+
+    async def run_loop(self):
+        """Continuous voice loop."""
+        while True:
+            # Listen
+            user_text = await self.stt.listen_and_transcribe()
+            
+            if not user_text:
+                continue
+                
+            if "exit" in user_text.lower() or "quit" in user_text.lower():
+                print("Exiting voice loop.")
+                break
+                
+            await self.process_user_input(user_text)
 
     async def process_user_input(self, user_text: str):
         print(f"User: {user_text}")
@@ -45,3 +63,4 @@ class Orchestrator:
         # Cleanup
         if os.path.exists(output_file):
             os.remove(output_file)
+
