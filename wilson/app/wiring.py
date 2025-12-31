@@ -6,6 +6,7 @@ from wilson.adapters.speech.edge_tts_adapter import EdgeTTSAdapter
 from wilson.adapters.speech.pygame_player import PygamePlayerAdapter
 from wilson.adapters.speech.stt_adapter import SpeechRecognitionAdapter
 
+
 def build_app() -> Orchestrator:
     settings = Settings()
     
