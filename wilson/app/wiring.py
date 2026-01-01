@@ -26,6 +26,7 @@ def build_app() -> Orchestrator:
         voice_name=settings.DEFAULT_VOICE
     )
     
+    
     # Service
     return Orchestrator(
         llm=llm_adapter, 
